@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ForLulu</title>
+</head>
+<body>
+
+    <div id="firstPage" class="card">
+        <h1>Hi lulu</h1>
+        <button onClick="hideFirstPageShowSecondPage()">Click me</button>
+    </div>
+
+    <div id="secondPage" class="card">
+        <h1 id="cuteTxt"><3</h1>
+    </div>
+
+    <script>
+        const words = [
+            "ure cute",        // English
+            "kamu lucu",       // Indonesian
+            "tu es mignon",    // French
+            "sei carino",      // Italian
+            "eres lindo",      // Spanish
+            "ты милый",        // Russian
+            "당신은 귀여워요",  // Korean
+            // Add more translations as needed
+        ];
+        let index = 0
+        const cuteTxt = document.getElementById("cuteTxt")
+        const updateText = () => {
+            cuteTxt.textContent = words[index]
+            index = (index + 1) % words.length;
+        }
+        setInterval(updateText, 1500); // 500 milliseconds = 0.5 seconds
+
+        const hideFirstPageShowSecondPage = () => {
+            const firstPage = document.getElementById("firstPage")
+            const secondPage = document.getElementById("secondPage")
+            firstPage.style.display = "none"
+            secondPage.style.display = "flex"
+        }
+
+    </script>
+</body>
+</html>
